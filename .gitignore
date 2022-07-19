@@ -1,3 +1,5 @@
+*.properties
+
 #Maven
 target/
 pom.xml.tag
