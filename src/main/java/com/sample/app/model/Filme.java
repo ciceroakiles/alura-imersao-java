@@ -27,8 +27,17 @@ public class Filme {
 
     @Override
     public String toString() {
-        return "-> Titulo: " + title
-            + "\n-> Link da imagem: " + image
-            + "\n-> Avaliacao: " + imDbRating;
+        return "[!] Titulo original do filme: " + title
+            + "\n[!] Avaliacao atual: " + imDbRating + "/10";
+    }
+
+    public void gerarUrlImagemMaior() {
+        String urlImagem = this.getImage();
+        String urlImagemMaior = urlImagem.replace(
+            urlImagem.substring(
+                urlImagem.indexOf("._"),
+                urlImagem.lastIndexOf(".")),
+            "");
+        this.setImage(urlImagemMaior);
     }
 }

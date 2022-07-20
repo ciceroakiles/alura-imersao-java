@@ -1,14 +1,24 @@
 # alura-imersao
 
-Consome uma API de filmes e obtém um JSON com dados dos top 250.
+Consome uma API com dados de diversos filmes.
 
-https://www.alura.com.br/imersao-java/aulas/aula01-consumindo-api-com-java
+Parte 1: https://www.alura.com.br/imersao-java/aulas/aula01-consumindo-api-com-java
 
-* Desafio 1 - Buscar por uma alternativa ao IMDb (FEITO)
-* Desafio 2 - Editar a saída da nota
-* Desafio 3 - Extrair chave da API para um arquivo de properties (FEITO)
-* Desafio 4 - Importar uma biblioteca para fazer o parse do JSON (FEITO)
-* Desafio 5 - Receber uma avaliação do usuário
-* Outro - "Imprimir poster" no terminal
+Desafios:
+* Usar uma alternativa ao IMDb (FEITO)
+* Editar a saída da nota (FEITO)
+* Extrair chave da API para um arquivo de properties (FEITO)
+* Importar uma biblioteca para fazer o parse do JSON (FEITO)
+* Receber uma avaliação do usuário (FEITO)
+* Imprimir um poster 
+
+Parte 2: https://www.alura.com.br/imersao-java/aulas/aula02-stickers-com-whatsapp
+
+Desafios:
+* Criar um diretório automaticamente para o arquivo de saída (FEITO)
+* Centralizar texto em relação à imagem (FEITO)
+* Tratar a URL da imagem para obter uma maior (FEITO)
+* Personalizar texto da figurinha em relação à nota (FEITO)
+* Consumir APIs de filmes com estruturas JSON diferentes
 
 Continua...
