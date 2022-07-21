@@ -1,32 +1,35 @@
 package com.sample.app;
 
-import java.util.Arrays;
+import java.util.List;
+import java.util.Scanner;
 
-import com.fasterxml.jackson.databind.DeserializationFeature;
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.sample.app.controller.InputOutputController;
-import com.sample.app.model.Filme;
-import com.sample.app.repository.FilmeRepository;
-import com.sample.app.service.RequisicaoService;
-//import com.sample.app.utils.PropertyManager;
+import com.sample.app.enumerator.UrlExtractorEnum;
+import com.sample.app.exception.CustomMsgException;
+import com.sample.app.model.Conteudo;
+import com.sample.app.utils.ClienteHttp;
+import com.sample.app.utils.StickerCreator;
 
 public class App {
     
-    //private static final String url1 = "https://api.mocki.io/v2/" + PropertyManager.getApiKey("dev.properties") + "/MostPopularMovies";
-    private static final String url2 = "https://alura-filmes.herokuapp.com/conteudos";
-
     public static void main(String[] args) throws Exception {
-        String json = RequisicaoService.fazerRequisicao(url2);
-        
-        ObjectMapper mapper = new ObjectMapper()
-            .configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
-        
-        JsonNode node = mapper.readTree(json);
-        String dados = node.get("items").toString();
-        
-        FilmeRepository.setFilmes(Arrays.asList(mapper.readValue(dados, Filme[].class)));
+        List<Conteudo> listaTeste = UrlExtractorEnum.API_IMDB
+            .getExtractor()
+            .extrairConteudos(
+                ClienteHttp.fazerRequisicao(UrlExtractorEnum.API_IMDB.getUrl()
+        ));
 
-        InputOutputController.filmesInputLoop();
+        System.out.println("Legenda:");
+        Scanner scanner = new Scanner(System.in);
+        String legenda = scanner.nextLine();
+        scanner.close();
+
+        StickerCreator stc = new StickerCreator();
+        listaTeste.forEach((content) -> {
+            try {
+                stc.criarFigurinha(content, legenda);
+            } catch (CustomMsgException e) {
+                System.out.println(e.getMessage());
+            }
+        });
     }
 }

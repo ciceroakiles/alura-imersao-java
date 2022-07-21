@@ -7,46 +7,39 @@ import java.net.URL;
 
 import javax.imageio.ImageIO;
 
-import com.sample.app.model.Filme;
+import com.sample.app.exception.CustomMsgException;
+import com.sample.app.model.Conteudo;
 
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.Font;
 
-public class StickerManager {
+public class StickerCreator {
 
     private static final double H_PERC = 0.2;
-    private InputStream inputStream;
     private BufferedImage imagemOriginal;
 
-    public void criarFigurinha(Filme filme, String legenda) {
-        filme.gerarUrlImagemMaior();
-        setIStreamAndImage(filme.getImage());
-
+    public void criarFigurinha(Conteudo conteudo, String legenda) throws CustomMsgException {
         try {
+            InputStream inputStream = new URL(conteudo.getImage()).openStream();
+            imagemOriginal = ImageIO.read(inputStream);
+
             int newHeight = (int) (imagemOriginal.getHeight() * (H_PERC + 1));
             BufferedImage novaImagem = new BufferedImage(imagemOriginal.getWidth(),
                 newHeight, BufferedImage.TRANSLUCENT);
             
-            Graphics2D g2d = processarGraphics2D(novaImagem, legenda, newHeight);
+            processarGraphics2D(novaImagem, legenda, newHeight);
 
-            ImageIO.write(novaImagem, "png", new FileManager()
-                .gerarArquivo(filme.getTitle()));
+            ImageIO.write(novaImagem, "png", new FileHandler()
+                .gerarArquivo(conteudo.getTitle()
+                    //LocalDateTime.now().toString().replace("[^a-zA-Z0-9]", "").replace(":", "")
+            ));
         } catch (IOException e) {
-            System.out.println("[!] Erro ao processar dados da imagem");
+            throw new CustomMsgException("[!] Erro ao processar dados da imagem: " + conteudo.getImage(), e);
         }
     }
 
-    private void setIStreamAndImage(String url) {
-        try {
-            this.inputStream = new URL(url).openStream();
-            imagemOriginal = ImageIO.read(inputStream);
-        } catch (IOException e) {
-            System.out.println("[!] Erro ao processar URL da imagem");
-        }
-    }
-
-    private Graphics2D processarGraphics2D(BufferedImage novaImagem, String legenda, int newHeight) {
+    private void processarGraphics2D(BufferedImage novaImagem, String legenda, int newHeight) {
         int width = imagemOriginal.getWidth();
         int height = imagemOriginal.getHeight();
 
@@ -66,7 +59,5 @@ public class StickerManager {
         int textX = (int) (width - legWidth)/2;
         int textY = newHeight - (int) (height * H_PERC/2) + (int) (fontSize * (1/2 - H_PERC));
         g2d.drawString(legenda, textX, textY);
-
-        return g2d;
     }
 }

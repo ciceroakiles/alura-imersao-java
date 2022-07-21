@@ -1,4 +1,4 @@
-package com.sample.app.service;
+package com.sample.app.utils;
 
 import java.io.IOException;
 import java.net.URI;
@@ -6,7 +6,7 @@ import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 
-public class RequisicaoService {
+public class ClienteHttp {
     
     public static String fazerRequisicao(String url) {
         HttpRequest request = HttpRequest.newBuilder(URI.create(url)).build();
