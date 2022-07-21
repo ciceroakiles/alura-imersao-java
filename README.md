@@ -18,10 +18,12 @@ Solução adotada: trocar a URL da API de filmes e modificar o tratamento dos da
 * Editar a saída da nota (FEITO)
 
 ```
-String os = System.getProperty("os.name");
-if (os.contains("Windows")) return "*";
-if (os.contains("Linux")) return "+";
-return ""; // (ou seja, nada de estrelas para usuarios de Mac)
+public static String starChar() {
+	String os = System.getProperty("os.name");
+	if (os.contains("Windows")) return "*";
+	if (os.contains("Linux")) return "+";
+	return ""; // (ou seja, nada de estrelas para usuarios de Mac)
+}
 ```
 
 Solução adotada: dependendo do sistema operacional, certos caracteres como emojis não são impressos corretamente; logo, foi feita uma classe que detecta o mesmo e altera o caractere utilizado para exibir a nota do filme com estrelas.
@@ -95,11 +97,11 @@ Solução adotada: realizar o tratamento do endereço original (no caso acima, r
 
 ```
 private String textoLegenda(double nota) {
-return (nota >= 9) ? "TOPZERA!" :
-	(nota >= 7.25) ? "MUITO BOM!" :
-	(nota >= 5.5) ? "MAIS OU MENOS!" :
-	(nota >= 2.75) ? "DORMI NO MEIO!" :
-	"NEM VI!";
+	return (nota >= 9) ? "TOPZERA!" :
+		(nota >= 7.25) ? "MUITO BOM!" :
+		(nota >= 5.5) ? "MAIS OU MENOS!" :
+		(nota >= 2.75) ? "DORMI NO MEIO!" :
+		"NEM VI!";
 }
 ```
 
