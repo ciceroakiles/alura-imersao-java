@@ -12,10 +12,10 @@ import com.sample.app.utils.StickerCreator;
 public class App {
     
     public static void main(String[] args) throws Exception {
-        List<Conteudo> listaTeste = UrlExtractorEnum.API_IMDB
+        List<Conteudo> listaTeste = UrlExtractorEnum.API_CUSTOM
             .getExtractor()
             .extrairConteudos(
-                ClienteHttp.fazerRequisicao(UrlExtractorEnum.API_IMDB.getUrl()
+                ClienteHttp.fazerRequisicao(UrlExtractorEnum.API_CUSTOM.getUrl()
         ));
 
         System.out.println("Legenda:");
@@ -26,6 +26,7 @@ public class App {
         StickerCreator stc = new StickerCreator();
         listaTeste.forEach((content) -> {
             try {
+                //System.out.println(content);
                 stc.criarFigurinha(content, legenda);
             } catch (CustomMsgException e) {
                 System.out.println(e.getMessage());

@@ -17,4 +17,9 @@ public class Conteudo {
     public void setImage(String image) {
         this.image = image;
     }
+
+    @Override
+    public String toString() {
+        return "[title=" + title + ",\nimage=" + image + "]";
+    }
 }
