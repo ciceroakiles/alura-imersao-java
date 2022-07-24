@@ -224,4 +224,6 @@ Solução adotada: fazer a própria API, como proposto nas partes 4 e 5.
 </details>
 
 <br>
-Continua no segundo repositório...
+Continua no segundo repositório:
+
+https://github.com/ciceroakiles/springboot-imagens-api-alura

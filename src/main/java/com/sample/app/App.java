@@ -18,7 +18,7 @@ public class App {
                 ClienteHttp.fazerRequisicao(UrlExtractorEnum.API_CUSTOM.getUrl()
         ));
 
-        System.out.println("Legenda:");
+        System.out.println("Legenda da(s) img(s):");
         Scanner scanner = new Scanner(System.in);
         String legenda = scanner.nextLine();
         scanner.close();
