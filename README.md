@@ -1,4 +1,4 @@
-# alura-imersao
+# alura-imersao-java
 
 Objetivo geral: consumir APIs de imagens e gerar figurinhas customizadas com elas. Os códigos de exemplo nos docs podem ou não estar presentes na versão atual.
 
