@@ -2,8 +2,7 @@
 
 Objetivo geral: consumir APIs de imagens e gerar figurinhas customizadas com elas. Os códigos de exemplo nos docs podem ou não estar presentes na versão atual.
 
-# Desafios da parte 1
-https://www.alura.com.br/imersao-java/aulas/aula01-consumindo-api-com-java
+## Desafios da parte 1
 
 <details>
 <summary>Usar uma alternativa ao IMDb para pegar imagens de filmes</summary>
@@ -89,8 +88,7 @@ Talvez, futuramente, retornar uma matriz gigante com uma "ASCII Art" ou um monte
 </details>
 
 
-# Desafios da parte 2
-https://www.alura.com.br/imersao-java/aulas/aula02-stickers-com-whatsapp
+## Desafios da parte 2
 
 <details>
 <summary>Criar um diretório automaticamente para o arquivo de saída</summary>
@@ -166,8 +164,7 @@ Solução adotada: usar cada um dos extratores em uma classe diferente, como pro
 </details>
 
 
-# Desafios da parte 3
-https://www.alura.com.br/imersao-java/aulas/aula03-orientacao-a-objetos
+## Desafios da parte 3
 
 <details>
 <summary>Mudar a classe Conteudo para "record"</summary>
