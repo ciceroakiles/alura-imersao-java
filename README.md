@@ -170,7 +170,7 @@ Solução adotada: usar cada um dos extratores em uma classe diferente, como pro
 https://www.alura.com.br/imersao-java/aulas/aula03-orientacao-a-objetos
 
 <details>
-<summary>Mudar a classe Conteudo para ```record```</summary>
+<summary>Mudar a classe Conteudo para "record"</summary>
 <br>
 
 Realizável apenas usando Java 14 ou posterior.
